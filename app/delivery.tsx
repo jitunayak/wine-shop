@@ -17,12 +17,12 @@ export default function delivery() {
     },
     {
       name: "Order Picked",
-      isCompleted: false,
+      isCompleted: true,
       description: "Picked  at 12:15 PM",
     },
     {
       name: "Delivered",
-      isCompleted: false,
+      isCompleted: true,
       description: "Delivered at 1:00 PM",
     },
   ]);

@@ -27,7 +27,7 @@ export default function Card({ data }: { data: IAlcohol }) {
         className={`h-32 w-20 scale-150 mb-2 shadow-md shadow-orange-300`}
       />
       <Container className="flex items-start w-32 ">
-        <Label className="text-xl font-bold w-fit text-neutral-800">
+        <Label className="text-xl font-medium w-fit text-neutral-800">
           {data.name}
         </Label>
 
@@ -36,7 +36,7 @@ export default function Card({ data }: { data: IAlcohol }) {
             return Object.keys(item).map((key, index) => {
               return (
                 <Container key={index}>
-                  <Label className="text-md font-bold text-neutral-700">
+                  <Label className="text-md font-medium text-neutral-800">
                     {key}
                   </Label>
                   <Label key={index} className="text-md text-neutral-600">
