@@ -1,4 +1,5 @@
 import { SimpleLineIcons } from "@expo/vector-icons";
+import { Link } from "expo-router";
 import React from "react";
 import { useCartStore } from "../hooks/store";
 import Container from "./Container";
@@ -22,7 +23,9 @@ export default function Header() {
               </Label>
             </Container>
           )}
-          <SimpleLineIcons name="bag" size={24} color="black" />
+          <Link href="/cart">
+            <SimpleLineIcons name="bag" size={24} color="black" />
+          </Link>
         </Container>
       </Container>
       <SearcBar />
