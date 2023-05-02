@@ -17,7 +17,9 @@ export default function Tabs({
         renderItem={({ item }) => (
           <TouchableHighlight
             onPress={() => setCurrentSelectedCategory(item)}
-            className={`p-4  ${currentSelectedCategory === item && "bg-white"}`}
+            className={`p-4   ${
+              currentSelectedCategory === item && "bg-white"
+            }`}
           >
             {currentSelectedCategory === item ? (
               <Text className="text-base font-medium  text-black ">{item}</Text>

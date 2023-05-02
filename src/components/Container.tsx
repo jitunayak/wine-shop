@@ -7,7 +7,10 @@ export default function Container({
   ...props
 }: ViewProps) {
   return (
-    <View {...props} className={`flex bg-white dark:bg-slate-800 ${className}`}>
+    <View
+      {...props}
+      className={`flex bg-white dark:bg-slate-800  ${className}`}
+    >
       {children}
     </View>
   );

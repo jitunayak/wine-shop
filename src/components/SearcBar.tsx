@@ -7,9 +7,13 @@ export default function SearcBar() {
     <View className="m-2">
       <TextInput
         value={searchText}
-        onChangeText={(e) => setSearchText(e.toUpperCase())}
+        autoCapitalize="none"
+        autoComplete={"off"}
+        clearButtonMode="always"
+        onChangeText={(e) => setSearchText(e)}
         placeholder="search e.g. magnum"
-        className="bg-white border border-neutral-200 mb-2 p-4 rounded text-lg"
+        style={{ fontSize: 16, padding: 10 }}
+        className="bg-white border border-neutral-200 rounded"
       />
     </View>
   );

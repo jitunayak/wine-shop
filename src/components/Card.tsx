@@ -1,7 +1,9 @@
+import { Ionicons } from "@expo/vector-icons";
 import React from "react";
-import { Button, Image } from "react-native";
+import { Image } from "react-native";
 import { useCartStore } from "../hooks/store";
 import { IAlcohol } from "../types/ICommon";
+import { BuyButton } from "./BuyButton";
 import Container from "./Container";
 import Label from "./Label";
 
@@ -17,6 +19,7 @@ export default function Card({ data }: { data: IAlcohol }) {
     removeItem(item);
     return item;
   }
+
   return (
     <Container className="p-4  my-4 shadow-md flex-row justify-around dark:shadow-stone-300">
       <Image
@@ -44,24 +47,37 @@ export default function Card({ data }: { data: IAlcohol }) {
             });
           })}
         <Label className="text-lg font-bold text-neutral-800">
-          ₹ {data.price}
+          $ {data.price}
         </Label>
-        <Container className="flex flex-row justify-around w-full">
-          {items.filter((item) => item.id === data.id).length > 0 && (
-            <Button
-              title={data.inStock ? "remove" : "Out of Stock"}
-              disabled={!data.inStock}
-              onPress={() => removeItemFromCart(data)}
-            />
+        <Container className="flex flex-row justify-center w-full items-center">
+          {items.filter((item) => item.id === data.id).length > 0 ? (
+            <Container className="flex flex-row justify-around w-full ">
+              <Ionicons
+                onPress={() => removeItemFromCart(data)}
+                name="remove-circle"
+                size={30}
+                color="gray"
+              />
+              <Label className="text-md font-bold text-neutral-800">
+                {items.filter((item) => item.id === data.id).length}
+              </Label>
+              <Ionicons
+                onPress={() => addItemToCart(data)}
+                name="add-circle-sharp"
+                size={30}
+                color="black"
+              />
+            </Container>
+          ) : !data.inStock ? (
+            <Label className="text-md font-bold text-red-500">
+              Out of Stock
+            </Label>
+          ) : (
+            <BuyButton
+              onPress={() => addItemToCart(data)}
+              data={data}
+            ></BuyButton>
           )}
-          <Button
-            title={data.inStock ? "buy" : "Out of Stock"}
-            disabled={!data.inStock}
-            onPress={() => addItemToCart(data)}
-            //   className="text-sm m-2 px-2 py-1 bg-neutral-800 rounded items-center align-center w-20"
-          />
-          {/* <Label className="font-medium text-lg text-neutral-100">Grab</Label> */}
-          {/* </Button> */}
         </Container>
       </Container>
     </Container>
