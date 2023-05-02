@@ -16,7 +16,7 @@ export default function HomeScreen() {
   return (
     <Container className="bg-neutral-100 justify-start flex-1">
       <Header />
-      <Container className="flex-row flex w-full">
+      <Container className="flex-row flex w-full h-full">
         <Tabs
           list={categories}
           currentSelectedCategory={currentSelectedCategory}
