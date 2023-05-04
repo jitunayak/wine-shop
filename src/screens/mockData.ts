@@ -27,7 +27,7 @@ export const productList: IAlcohol[] = [
     inStock: true,
   },
   {
-    id: "sdsds2ww233d0394er",
+    id: "sdsds2ww233d0394sder",
     name: "St Da Squad",
     price: 450,
     category: "rum",
@@ -39,7 +39,7 @@ export const productList: IAlcohol[] = [
     inStock: true,
   },
   {
-    id: "sdsdsdwwer",
+    id: "sdsdsdwwedr",
     name: "Lanson",
     price: 150,
     category: "whisky",
@@ -52,7 +52,7 @@ export const productList: IAlcohol[] = [
     inStock: true,
   },
   {
-    id: "2333",
+    id: "233ww3",
     name: "San Miguel",
     price: 150,
     category: "wine",

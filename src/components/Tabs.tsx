@@ -12,7 +12,7 @@ export default function Tabs({
   return (
     <>
       <FlatList
-        className="bg-neutral-800"
+        className="bg-green-700"
         data={list}
         renderItem={({ item }) => (
           <TouchableHighlight
