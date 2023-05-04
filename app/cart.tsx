@@ -45,6 +45,7 @@ export default function cartScreen() {
 
       <TouchableOpacity
         onPress={() => {
+          router.push("../");
           items.length === 0 ? router.push("/") : router.push("/delivery");
         }}
       >

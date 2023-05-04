@@ -22,7 +22,7 @@ export default function delivery() {
     },
     {
       name: "Delivered",
-      isCompleted: true,
+      isCompleted: false,
       description: "Delivered at 1:00 PM",
     },
   ]);

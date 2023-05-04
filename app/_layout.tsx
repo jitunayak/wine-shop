@@ -19,15 +19,19 @@ export default function Layout() {
       >
         <Stack.Screen
           name="cart"
-          options={{ headerShown: true, headerTitle: "Cart" }}
+          options={{
+            presentation: "formSheet",
+            headerShown: true,
+            headerTitle: "Cart",
+          }}
         />
         <Stack.Screen
           name="delivery"
           options={{
             headerShown: true,
             headerTitle: "Delivery",
-            headerShadowVisible: true,
-            headerBackTitleVisible: false,
+            // headerShadowVisible: true,
+            // headerBackTitleVisible: false,
           }}
         />
       </Stack>
