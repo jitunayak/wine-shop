@@ -5,6 +5,7 @@ export interface ICartStore {
   items: IAlcohol[];
   addItem: (item: IAlcohol) => void;
   removeItem: (item: IAlcohol) => void;
+  removeAllItems: () => void;
 }
 
 const removeItems = (items: IAlcohol[], item: IAlcohol) => {
@@ -28,7 +29,7 @@ export const useCartStore: UseBoundStore<StoreApi<ICartStore>> = create(
         items: removeItems(state.items, item),
       })),
 
-    removeAllBears: () => set({ items: [] }),
+    removeAllItems: () => set({ items: [] }),
   })
 );
 

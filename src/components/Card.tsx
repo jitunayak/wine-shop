@@ -47,7 +47,7 @@ export default function Card({ data }: { data: IAlcohol }) {
             });
           })}
         <Label className="text-lg font-bold text-neutral-800">
-          $ {data.price}
+          ₹ {data.price}
         </Label>
         <Container className="flex flex-row justify-center w-full items-center">
           {items.filter((item) => item.id === data.id).length > 0 ? (

@@ -30,8 +30,6 @@ export default function Layout() {
           options={{
             headerShown: true,
             headerTitle: "Delivery",
-            // headerShadowVisible: true,
-            // headerBackTitleVisible: false,
           }}
         />
       </Stack>

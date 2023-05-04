@@ -6,6 +6,7 @@ import Login from "./app/login";
 import Container from "./src/components/Container";
 import { useUserStore } from "./src/hooks/store";
 import HomeScreen from "./src/screens/HomeScreen";
+import { env } from "./src/utils/config";
 
 export default function App() {
   const { colorScheme, toggleColorScheme, setColorScheme } = useColorScheme();
@@ -21,8 +22,24 @@ export default function App() {
     // Send the waId to your server and pass the waId in getUserDetail API to retrieve the user detail.
     // Handle the signup/signin process here
     console.log(waId);
-    Alert.alert(waId ?? "no user");
+    const userInfo = await getUserInfo(waId);
+    console.log({ userInfo });
+    Alert.alert("logged in" ?? "no user");
     setUserId(waId);
+  };
+
+  const getUserInfo = async (waId: string) => {
+    const response = await fetch("https://kochgs.authlink.me", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        clientId: env.ENV_OTP_LESS_ID,
+        clientSecret: env.ENV_OTP_LESS_SECRET_KEY,
+      },
+      body: JSON.stringify({ waId }),
+    });
+    console.log({ response });
+    return response.json();
   };
 
   useEffect(() => {

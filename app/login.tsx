@@ -3,13 +3,13 @@ import React, { useCallback } from "react";
 import { Alert, Linking, TouchableOpacity, View } from "react-native";
 import Label from "../src/components/Label";
 import { useUserStore } from "../src/hooks/store";
+import { env } from "../src/utils/config";
 
 const Login = () => {
   const { setUserId } = useUserStore();
 
   const handlePress = useCallback(async () => {
-    const url =
-      "https://zenstore.authlink.me?redirectUri=zenstoreotpless://otpless";
+    const url = env.ENV_OTP_LESS_URL;
     const supported = await Linking.canOpenURL(url);
     if (supported) {
       await Linking.openURL(url);
@@ -24,8 +24,8 @@ const Login = () => {
 
   return (
     <>
-      <Label className="text-neutral-700  text-3xl absolute top-10">
-        App Name
+      <Label className="text-neutral-700  text-3xl absolute top-20 font-extrabold">
+        Royal Glass
       </Label>
       <TouchableOpacity onPress={handlePress}>
         <View
