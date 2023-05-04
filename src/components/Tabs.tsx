@@ -22,7 +22,7 @@ export default function Tabs({
             }`}
           >
             {currentSelectedCategory === item ? (
-              <Text className="text-base font-medium  text-black ">{item}</Text>
+              <Text className="text-base  text-black ">{item}</Text>
             ) : (
               <Text className="text-base font-medium  text-neutral-50 ">
                 {item}

@@ -31,3 +31,11 @@ export const useCartStore: UseBoundStore<StoreApi<ICartStore>> = create(
     removeAllBears: () => set({ items: [] }),
   })
 );
+
+export const useUserStore: UseBoundStore<StoreApi<any>> = create((set) => ({
+  userId: null,
+  isNewAccount: false,
+  userName: "Jitu Nayak",
+  phoneNumber: "9999999999",
+  setUserId: (userId: string) => set({ userId }),
+}));
