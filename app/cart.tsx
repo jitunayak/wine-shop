@@ -22,7 +22,7 @@ export default function cartScreen() {
     return priceInRupees * 100;
   };
 
-  const handlePayment = async () => {
+  async function handlePayment() {
     {
       if (items.length === 0) {
         router.push("/");
@@ -38,7 +38,7 @@ export default function cartScreen() {
         name: "Wine Shop",
         prefill: {
           email: "jitunayak715@gmail.com",
-          contact: "91777777777",
+          contact: "911234567890",
           name: "Jitu Nayak",
         },
         theme: { color: "#0e5a14" },
@@ -54,7 +54,7 @@ export default function cartScreen() {
           alert(`Error: ${error.description}`);
         });
     }
-  };
+  }
 
   return (
     <View className="flex-1 py-10 justify-between">
@@ -82,16 +82,10 @@ export default function cartScreen() {
           </Container>
         ))}
       </ScrollView>
-      // payment button
       <TouchableOpacity onPress={() => handlePayment()}>
-        <View className="bg-green-700 m-2 py-3 w-fit justify-center items-center  rounded">
-          <Label
-            className="text-white font-medium text-md
-          "
-          >
-            {items.length === 0
-              ? "Go Back"
-              : `PAY ₹ ${getTotalBillAmount() / 100}`}
+        <View className="bg-green-700 m-2 py-3 w-fit justify-center items-center rounded">
+          <Label className="text-white font-medium text-md">
+            {items.length === 0 ? "Go Back" : `PAY ₹ ${getTotalBillAmount()}`}
           </Label>
         </View>
       </TouchableOpacity>

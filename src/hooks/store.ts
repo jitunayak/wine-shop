@@ -39,4 +39,5 @@ export const useUserStore: UseBoundStore<StoreApi<any>> = create((set) => ({
   userName: "Jitu Nayak",
   phoneNumber: "9999999999",
   setUserId: (userId: string) => set({ userId }),
+  setUserName: (userName: string) => set({ userName }),
 }));

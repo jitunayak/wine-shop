@@ -8,7 +8,7 @@ import SearcBar from "./SearcBar";
 
 export default function Header() {
   const { items } = useCartStore();
-  const { userId, setUserId } = useUserStore();
+  const { userId, setUserId, userName } = useUserStore();
 
   return (
     <>
@@ -17,9 +17,9 @@ export default function Header() {
           onPress={() => {
             setUserId(null);
           }}
-          className="text-xl font-medium text-center text-neutral-700"
+          className="text-xl my-4 font-medium text-center text-neutral-700"
         >
-          Royal Glass ({userId})
+          Royal Glass ({userName})
         </Label>
         <Container className="flex-row items-center justify-center px-4 ">
           {items.length > 0 && (
