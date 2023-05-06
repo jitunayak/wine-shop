@@ -17,14 +17,14 @@ export default function Tabs({
       renderItem={({ item }) => (
         <TouchableOpacity
           onPress={() => setCurrentSelectedCategory(item)}
-          className={`p-2 m-2 border rounded-full border-transparent ${
-            currentSelectedCategory === item && "bg-white  border-neutral-400"
+          className={`bg-neutral-100 p-2 m-2 border rounded-full border-transparent ${
+            currentSelectedCategory === item && "bg-black  border-neutral-100"
           }`}
         >
           <Text
-            className={`text-base font-medium font text-neutral-600 ${
+            className={`text-base font-medium font text-neutral-600  ${
               currentSelectedCategory === item
-                ? "text-neutral-600 "
+                ? "text-neutral-100"
                 : "text-neutral-400"
             }`}
           >

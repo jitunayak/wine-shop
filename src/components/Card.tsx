@@ -59,8 +59,8 @@ export default function Card({ data }: { data: IAlcohol }) {
         </Label>
         <Container className="flex flex-row justify-center w-full items-center">
           {items.filter((item) => item.id === data.id).length > 0 ? (
-            <Container className="absolute flex flex-row justify-around border border-neutral-400 rounded-md mt-2 bottom-1 right-1">
-              <View className="flex flex-row gap-4 w-fit items-center">
+            <Container className="absolute flex flex-row justify-around border border-neutral-300 rounded-md mt-2 bottom-1 right-1">
+              <View className=" gap-4 w-30 items-center">
                 <Ionicons
                   onPress={() => removeItemFromCart(data)}
                   name="remove-circle"

@@ -17,7 +17,7 @@ export default function Header() {
       <Container className="flex-row justify-between mx-4 items-center py-2">
         <View className="rounded-full w-10 h-10 justify-center items-center  border border-neutral-400">
           <Link href="profile">
-            <SimpleLineIcons name="user" size={20} color="gray" />
+            <SimpleLineIcons name="user" size={20} color="black" />
           </Link>
         </View>
         <Label
