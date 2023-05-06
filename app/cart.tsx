@@ -47,7 +47,6 @@ export default function cartScreen() {
       RazorpayCheckout.open(options)
         .then((data) => {
           router.push("../");
-          //   alert(`Success: ${data.razorpay_payment_id}`);
           router.push("/delivery");
           removeAllItems();
         })

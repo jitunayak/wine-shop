@@ -15,7 +15,16 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.jitu715.wineshop"
+      "bundleIdentifier": "com.jitu715.wineshop",
+      "infoPlist": {
+        "CFBundleURLTypes": [
+          {
+            "CFBundleURLSchemes": ["zenstoreotpless"],
+            "CFBundleTypeRole": "Editor",
+            "CFBundleURLName": "otpless"
+          }
+        ]
+      }
     },
     "android": {
       "adaptiveIcon": {

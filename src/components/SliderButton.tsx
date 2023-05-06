@@ -23,7 +23,6 @@ export default function SliderButton({ children }: any) {
   const onPanGenstureEvent =
     useAnimatedGestureHandler<PanGestureHandlerGestureEvent>({
       onActive: (event) => {
-        console.log(event.translationX);
         const MAX_SLIDE_OFFSET = BUTTON_WIDTH * 3;
         translateX.value = clamp(
           event.translationX,
