@@ -7,8 +7,9 @@ import {
 import Label from "./Label";
 
 interface Props extends ViewProps {
-  title: string;
+  title?: string;
   onPress?: TouchableOpacityProps["onPress"];
+  children?: React.ReactNode;
 }
 export const Button: React.FC<Props> = ({ title, className, ...props }) => {
   return (
@@ -17,7 +18,11 @@ export const Button: React.FC<Props> = ({ title, className, ...props }) => {
         {...props}
         className={`bg-neutral-800 justify-center items-center px-4 rounded ${className}`}
       >
-        <Label className="text-white text-base">{title}</Label>
+        {props.children ? (
+          props.children
+        ) : (
+          <Label className="text-base">{title}</Label>
+        )}
       </View>
     </TouchableOpacity>
   );

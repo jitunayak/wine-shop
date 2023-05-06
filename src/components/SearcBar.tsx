@@ -10,10 +10,12 @@ export default function SearcBar() {
         autoCapitalize="none"
         autoComplete={"off"}
         clearButtonMode="always"
+        clearTextOnFocus={true}
         onChangeText={(e) => setSearchText(e)}
         placeholder="search e.g. magnum"
-        style={{ fontSize: 16, padding: 10 }}
-        className="bg-white border border-neutral-200 rounded"
+        placeholderTextColor="gray"
+        style={{ fontSize: 16 }}
+        className="bg-white border border-neutral-300 rounded-full px-4 py-4"
       />
     </View>
   );

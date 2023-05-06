@@ -11,30 +11,30 @@ export default function Tabs({
   setCurrentSelectedCategory: any;
 }) {
   return (
-    <>
-      <FlatList
-        className="bg-green-700"
-        data={list}
-        renderItem={({ item }) => (
-          <TouchableOpacity
-            onPress={() => setCurrentSelectedCategory(item)}
-            className={`p-4   ${
-              currentSelectedCategory === item && "bg-white"
+    <FlatList
+      className=""
+      data={list}
+      renderItem={({ item }) => (
+        <TouchableOpacity
+          onPress={() => setCurrentSelectedCategory(item)}
+          className={`p-2 m-2 border rounded-full border-transparent ${
+            currentSelectedCategory === item && "bg-white  border-neutral-400"
+          }`}
+        >
+          <Text
+            className={`text-base font-medium font text-neutral-600 ${
+              currentSelectedCategory === item
+                ? "text-neutral-600 "
+                : "text-neutral-400"
             }`}
           >
-            {currentSelectedCategory === item ? (
-              <Text className="text-base  text-black ">{item}</Text>
-            ) : (
-              <Text className="text-base font-medium  text-neutral-50 ">
-                {item}
-              </Text>
-            )}
-          </TouchableOpacity>
-        )}
-        keyExtractor={(item) => item}
-        // horizontal={true}
-        // showsHorizontalScrollIndicator={false}
-      />
-    </>
+            {item}
+          </Text>
+        </TouchableOpacity>
+      )}
+      keyExtractor={(item) => item}
+      horizontal={true}
+      showsHorizontalScrollIndicator={false}
+    />
   );
 }

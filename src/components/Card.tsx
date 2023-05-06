@@ -23,16 +23,19 @@ export default function Card({ data }: { data: IAlcohol }) {
   }
 
   return (
-    <Container className="p-4  my-4 shadow-md flex-row justify-around bg-white dark:shadow-stone-300">
+    <Container className="p-4 my-4 shadow-md flex-row justify-around bg-white dark:shadow-stone-300">
       <MotiImage
         from={{ opacity: 0.6 }}
         animate={{ opacity: 1 }}
         transition={{ type: "timing" }}
         source={{ uri: data.image }}
-        className={`h-32 w-20 scale-150 mb-2  shadow-orange-300`}
+        className={`h-32 w-20 scale-150 mb-2  shadow-orange-300 ml-4`}
       />
-      <Container className="flex items-start w-32 ">
-        <Label className="text-xl font-medium w-fit text-neutral-800">
+      <Container className="flex items-start ml-4 ">
+        <Label
+          className="text-lg font-medium w-fit text-neutral-800 line-clamp-1"
+          numberOfLines={1}
+        >
           {data.name}
         </Label>
 
@@ -41,7 +44,7 @@ export default function Card({ data }: { data: IAlcohol }) {
             return Object.keys(item).map((key, index) => {
               return (
                 <Container key={index}>
-                  <Label className="text-md font-medium text-neutral-800">
+                  <Label className="text-md font-medium text-neutral-400">
                     {key}
                   </Label>
                   <Label key={index} className="text-md text-neutral-600">
@@ -56,8 +59,8 @@ export default function Card({ data }: { data: IAlcohol }) {
         </Label>
         <Container className="flex flex-row justify-center w-full items-center">
           {items.filter((item) => item.id === data.id).length > 0 ? (
-            <Container className="flex flex-row justify-around w-full bg-neutral-800 rounded-md mt-2">
-              <View className="flex flex-row gap-4 items-center">
+            <Container className="flex flex-row justify-around border border-neutral-400 rounded-md mt-2">
+              <View className="flex flex-row gap-4 w-fit items-center">
                 <Ionicons
                   onPress={() => removeItemFromCart(data)}
                   name="remove-circle"
@@ -68,7 +71,7 @@ export default function Card({ data }: { data: IAlcohol }) {
                   from={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ type: "spring" }}
-                  className="text-md font-bold text-neutral-100"
+                  className="text-md font-bold text-neutral-800"
                 >
                   {items.filter((item) => item.id === data.id).length}
                 </MotiText>
@@ -76,7 +79,7 @@ export default function Card({ data }: { data: IAlcohol }) {
                   onPress={() => addItemToCart(data)}
                   name="add-circle-sharp"
                   size={30}
-                  color="white"
+                  color="black"
                 />
               </View>
             </Container>
@@ -88,7 +91,7 @@ export default function Card({ data }: { data: IAlcohol }) {
                 </Label>
               ) : (
                 <Button
-                  className="py-[1]"
+                  className="py-[1] border bg-white border-neutral-300"
                   title="GRAB"
                   onPress={() => {
                     addItemToCart(data);

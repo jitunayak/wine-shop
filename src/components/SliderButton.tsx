@@ -30,6 +30,7 @@ export default function SliderButton({ children }: any) {
           MAX_SLIDE_OFFSET
         );
       },
+
       onEnd: () => {
         translateX.value = withSpring(-120);
       },

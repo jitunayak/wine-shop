@@ -4,6 +4,7 @@ import Card from "../components/Card";
 import Container from "../components/Container";
 import Header from "../components/Header";
 import Tabs from "../components/Tabs";
+import { VStack } from "../components/VStack";
 import { productList } from "./mockData";
 export default function HomeScreen() {
   const [categories, setCategories] = useState(
@@ -14,9 +15,9 @@ export default function HomeScreen() {
     categories[0]
   );
   return (
-    <Container className="justify-start flex-1">
+    <Container className="justify-start flex-1 ">
       <Header />
-      <Container className="flex-row flex w-full h-full">
+      <VStack className="items-stretch w-full ">
         <Tabs
           list={categories}
           currentSelectedCategory={currentSelectedCategory}
@@ -26,12 +27,12 @@ export default function HomeScreen() {
           data={productList.filter(
             (item) => item.category === currentSelectedCategory
           )}
-          className="mb-44"
+          className=""
           showsVerticalScrollIndicator={false}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => <Card data={item} />}
         />
-      </Container>
+      </VStack>
     </Container>
   );
 }

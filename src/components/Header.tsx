@@ -1,5 +1,6 @@
 import { SimpleLineIcons } from "@expo/vector-icons";
 import { Link } from "expo-router";
+import { View } from "moti";
 import React from "react";
 import { useCartStore, useUserStore } from "../hooks/store";
 import Container from "./Container";
@@ -12,15 +13,18 @@ export default function Header() {
 
   return (
     <>
-      <Container className="flex-row items-center justify-between mx-4">
+      <Container className="flex-row justify-between mx-4 items-center py-2">
+        <View className="rounded-full w-10 h-10 bg-neutral-200"></View>
         <Label
           onPress={() => {
             setUserId(null);
           }}
-          className="text-xl my-4 font-medium text-center text-neutral-700"
+          className="text-neutral-700  text-3xl font-extrabold"
         >
-          Royal Glass ({userName})
+          Royal Glass
         </Label>
+
+        {/* <Label>{userName}</Label> */}
         <Container className="flex-row items-center justify-center px-4 ">
           {items.length > 0 && (
             <Container className="bg-orange-500 rounded-full w-6 h-6 items-center justify-center ">

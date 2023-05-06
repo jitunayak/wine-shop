@@ -3,6 +3,7 @@ import { useRouter } from "expo-router";
 import React from "react";
 import { ScrollView, View } from "react-native";
 import RazorpayCheckout, { CheckoutOptions } from "react-native-razorpay";
+import Address from "../src/components/Address";
 import { Button } from "../src/components/Button";
 import { HStack } from "../src/components/HStack";
 import Label from "../src/components/Label";
@@ -56,20 +57,22 @@ export default function cartScreen() {
     }
   }
 
+  if (items.length === 0) {
+    return (
+      <HStack className="m-2 px-2 rounded bg-neutral-50">
+        <Label className="text-lg font-medium m-2 text-center text-neutral-500 ">
+          Your Cart is Empty
+        </Label>
+        <Ionicons name="md-trash-bin-outline" size={24} color="gray" />
+      </HStack>
+    );
+  }
   return (
     <View className="flex-1 py-10 justify-between">
-      {items.length === 0 && (
-        <HStack className="m-2 px-2 rounded bg-neutral-50">
-          <Label className="text-lg font-medium m-2 text-center text-neutral-500 ">
-            Your Cart is Empty
-          </Label>
-          <Ionicons name="md-trash-bin-outline" size={24} color="gray" />
-        </HStack>
-      )}
-      <ScrollView className="">
+      <ScrollView className="m-2 rounded-md bg-white border border-neutral-200">
         {[...new Set(items.map((item) => item.id))].map((id) => (
-          <HStack key={id} className="m-1 p-4 rounded bg-neutral-50">
-            <Label className="font-medium text-base">
+          <HStack key={id} className="p-4 border-b border-neutral-100">
+            <Label className="">
               {items.find((item) => item.id === id)?.name}
             </Label>
             <HStack>
@@ -79,11 +82,20 @@ export default function cartScreen() {
           </HStack>
         ))}
       </ScrollView>
+      <Address />
       <Button
-        title={items.length === 0 ? "Go Back" : `PAY ₹ ${getTotalBillAmount()}`}
-        className="m-2 p-2 bg-green-700"
+        className="m-2 p-2 bg-green-700 shadow-lg"
         onPress={() => handlePayment()}
-      />
+      >
+        <HStack className="m-2 px-2 ">
+          <Label className="text-md font-medium text-white">
+            {items.length} items |
+          </Label>
+          <Label className="text-md font-bold text-white">
+            {items.length === 0 ? "Go Back" : `PAY ₹ ${getTotalBillAmount()}`}
+          </Label>
+        </HStack>
+      </Button>
     </View>
   );
 }
