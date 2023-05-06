@@ -8,7 +8,7 @@ import SearcBar from "./SearcBar";
 
 export default function Header() {
   const { items } = useCartStore();
-  const { userId, setUserId, userName } = useUserStore();
+  const { setUserId, userName } = useUserStore();
 
   return (
     <>

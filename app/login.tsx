@@ -2,6 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import React, { useCallback } from "react";
 import { Alert, Linking, TouchableOpacity, View } from "react-native";
 import Label from "../src/components/Label";
+import SliderButton from "../src/components/SliderButton";
 import { useUserStore } from "../src/hooks/store";
 import { env } from "../src/utils/config";
 
@@ -23,7 +24,7 @@ const Login = () => {
   };
 
   return (
-    <>
+    <View className="flex-1 justify-center items-center w-full m-2">
       <Label className="text-neutral-700  text-3xl absolute top-20 font-extrabold">
         Royal Glass
       </Label>
@@ -41,7 +42,8 @@ const Login = () => {
       <Label onPress={handleSkip} className="p-2 text-base underline">
         skip
       </Label>
-    </>
+      <SliderButton>slide to skip</SliderButton>
+    </View>
   );
 };
 

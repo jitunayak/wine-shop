@@ -1,10 +1,11 @@
 import { Ionicons } from "@expo/vector-icons";
-import * as Haptics from "expo-haptics";
+import { MotiImage, MotiText } from "moti";
 import React from "react";
-import { Image, View } from "react-native";
+import { View } from "react-native";
 import { useCartStore } from "../hooks/store";
 import { IAlcohol } from "../types/ICommon";
-import { BuyButton } from "./BuyButton";
+import { vibrate } from "../utils/utils";
+import { Button } from "./Button";
 import Container from "./Container";
 import Label from "./Label";
 
@@ -12,20 +13,21 @@ export default function Card({ data }: { data: IAlcohol }) {
   const { addItem, removeItem, items } = useCartStore();
 
   function addItemToCart(item: IAlcohol) {
-    Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+    vibrate();
     addItem(item);
-    return item;
   }
 
   function removeItemFromCart(item: IAlcohol) {
-    Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+    vibrate();
     removeItem(item);
-    return item;
   }
 
   return (
     <Container className="p-4  my-4 shadow-md flex-row justify-around bg-white dark:shadow-stone-300">
-      <Image
+      <MotiImage
+        from={{ opacity: 0.6 }}
+        animate={{ opacity: 1 }}
+        transition={{ type: "timing" }}
         source={{ uri: data.image }}
         className={`h-32 w-20 scale-150 mb-2  shadow-orange-300`}
       />
@@ -62,9 +64,14 @@ export default function Card({ data }: { data: IAlcohol }) {
                   size={30}
                   color="gray"
                 />
-                <Label className="text-md font-bold text-neutral-100">
+                <MotiText
+                  from={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ type: "spring" }}
+                  className="text-md font-bold text-neutral-100"
+                >
                   {items.filter((item) => item.id === data.id).length}
-                </Label>
+                </MotiText>
                 <Ionicons
                   onPress={() => addItemToCart(data)}
                   name="add-circle-sharp"
@@ -80,12 +87,13 @@ export default function Card({ data }: { data: IAlcohol }) {
                   Out of Stock
                 </Label>
               ) : (
-                <BuyButton
+                <Button
+                  className="py-[1]"
+                  title="GRAB"
                   onPress={() => {
                     addItemToCart(data);
                   }}
-                  data={data}
-                ></BuyButton>
+                />
               )}
             </>
           )}

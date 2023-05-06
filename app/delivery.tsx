@@ -2,6 +2,8 @@ import { Ionicons } from "@expo/vector-icons";
 import React, { useState } from "react";
 import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import Container from "../src/components/Container";
+import { HStack } from "../src/components/HStack";
+import { VStack } from "../src/components/VStack";
 
 export default function delivery() {
   const [deliveryTracker, setDeliveryTracker] = useState([
@@ -63,8 +65,8 @@ export default function delivery() {
   ): React.ReactElement<any, string | React.JSXElementConstructor<any>> | null {
     return (
       <>
-        <Container className="flex items-start">
-          <Container className={`flex flex-row items-start`}>
+        <VStack>
+          <HStack>
             <Container className="">
               <Ionicons
                 name="md-checkmark-done-circle-outline"
@@ -89,8 +91,8 @@ export default function delivery() {
               </Text>
               <Text className="">( {item.description} )</Text>
             </Container>
-          </Container>
-        </Container>
+          </HStack>
+        </VStack>
       </>
     );
   }

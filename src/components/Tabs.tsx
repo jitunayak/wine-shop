@@ -1,5 +1,6 @@
 import React from "react";
-import { FlatList, Text, TouchableHighlight } from "react-native";
+import { FlatList, Text } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 export default function Tabs({
   list,
   currentSelectedCategory,
@@ -15,7 +16,7 @@ export default function Tabs({
         className="bg-green-700"
         data={list}
         renderItem={({ item }) => (
-          <TouchableHighlight
+          <TouchableOpacity
             onPress={() => setCurrentSelectedCategory(item)}
             className={`p-4   ${
               currentSelectedCategory === item && "bg-white"
@@ -28,7 +29,7 @@ export default function Tabs({
                 {item}
               </Text>
             )}
-          </TouchableHighlight>
+          </TouchableOpacity>
         )}
         keyExtractor={(item) => item}
         // horizontal={true}
