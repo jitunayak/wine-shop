@@ -59,7 +59,7 @@ export default function Card({ data }: { data: IAlcohol }) {
         </Label>
         <Container className="flex flex-row justify-center w-full items-center">
           {items.filter((item) => item.id === data.id).length > 0 ? (
-            <Container className="flex flex-row justify-around border border-neutral-400 rounded-md mt-2">
+            <Container className="absolute flex flex-row justify-around border border-neutral-400 rounded-md mt-2 bottom-1 right-1">
               <View className="flex flex-row gap-4 w-fit items-center">
                 <Ionicons
                   onPress={() => removeItemFromCart(data)}
@@ -90,13 +90,15 @@ export default function Card({ data }: { data: IAlcohol }) {
                   Out of Stock
                 </Label>
               ) : (
-                <Button
-                  className="py-[1] border bg-white border-neutral-300"
-                  title="GRAB"
-                  onPress={() => {
-                    addItemToCart(data);
-                  }}
-                />
+                <Container className="absolute flex flex-row justify-around border border-transparent rounded-md bottom-1 right-1">
+                  <Button
+                    className="py-[1] border bg-white border-neutral-300"
+                    title="GRAB"
+                    onPress={() => {
+                      addItemToCart(data);
+                    }}
+                  />
+                </Container>
               )}
             </>
           )}

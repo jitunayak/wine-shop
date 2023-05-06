@@ -1,5 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import { Alert, Linking, TouchableOpacity, View } from "react-native";
 import Label from "../src/components/Label";
 import SliderButton from "../src/components/SliderButton";
@@ -22,6 +22,10 @@ const Login = () => {
   const handleSkip = () => {
     setUserId("dev_test");
   };
+
+  useEffect(() => {
+    setUserId(null);
+  }, []);
 
   return (
     <View className="flex-1 justify-center items-center w-full m-2">

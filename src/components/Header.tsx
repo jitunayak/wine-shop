@@ -1,5 +1,5 @@
 import { SimpleLineIcons } from "@expo/vector-icons";
-import { Link } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import { View } from "moti";
 import React from "react";
 import { useCartStore, useUserStore } from "../hooks/store";
@@ -9,12 +9,17 @@ import SearcBar from "./SearcBar";
 
 export default function Header() {
   const { items } = useCartStore();
+  const router = useRouter();
   const { setUserId, userName } = useUserStore();
 
   return (
     <>
       <Container className="flex-row justify-between mx-4 items-center py-2">
-        <View className="rounded-full w-10 h-10 bg-neutral-200"></View>
+        <View className="rounded-full w-10 h-10 justify-center items-center  border border-neutral-400">
+          <Link href="profile">
+            <SimpleLineIcons name="user" size={20} color="gray" />
+          </Link>
+        </View>
         <Label
           onPress={() => {
             setUserId(null);

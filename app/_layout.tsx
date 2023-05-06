@@ -32,6 +32,10 @@ export default function Layout() {
             headerTitle: "Delivery",
           }}
         />
+        <Stack.Screen
+          name="profile"
+          options={{ presentation: "modal", headerShown: true }}
+        />
       </Stack>
     </>
   );
