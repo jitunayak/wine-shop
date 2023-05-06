@@ -1,5 +1,6 @@
 import { SimpleLineIcons } from "@expo/vector-icons";
 import { Link, useRouter } from "expo-router";
+import { MotiText, MotiView } from "moti";
 import React from "react";
 import { Image } from "react-native";
 import { useCartStore, useUserStore } from "../hooks/store";
@@ -13,8 +14,12 @@ export default function Header() {
   const { setUserId, userName } = useUserStore();
 
   return (
-    <>
-      <Container className="flex-row justify-between mx-4 items-center py-2">
+    <MotiView
+      from={{ translateY: -50, opacity: 0.2 }}
+      animate={{ translateY: 0, opacity: 1 }}
+      transition={{ type: "spring" }}
+    >
+      <MotiView className="flex-row justify-between mx-4 items-center py-2">
         {userName ? (
           <Link href="profile">
             <Image
@@ -25,21 +30,21 @@ export default function Header() {
             />
           </Link>
         ) : (
-          <Container className="rounded-full w-10 h-10 justify-center items-center  border border-neutral-400">
+          <MotiView className="rounded-full w-10 h-10 justify-center items-center  border border-neutral-400">
             <Link href="profile">
               <SimpleLineIcons name="user" size={20} color="black" />
             </Link>
-          </Container>
+          </MotiView>
         )}
 
-        <Label
+        <MotiText
           onPress={() => {
             setUserId(null);
           }}
           className="text-neutral-700  text-3xl font-extrabold"
         >
           Royal Glass
-        </Label>
+        </MotiText>
 
         {/* <Label>{userName}</Label> */}
         <Container className="flex-row items-center justify-center px-4 ">
@@ -54,8 +59,8 @@ export default function Header() {
             <SimpleLineIcons name="bag" size={24} color="black" />
           </Link>
         </Container>
-      </Container>
+      </MotiView>
       <SearcBar />
-    </>
+    </MotiView>
   );
 }

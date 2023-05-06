@@ -13,8 +13,16 @@ export default function Layout() {
         initialRouteName="/"
         screenOptions={{
           headerShown: false,
-          headerTitleStyle: {},
-          headerStyle: {},
+          //   headerTitle: "Royal Glass",
+          //   headerTitleStyle: {
+          //     fontWeight: "bold",
+          //     fontSize: 32,
+          //     color: "#373333",
+          //   },
+          //   headerStyle: {},
+          //   headerSearchBarOptions: {
+          //     placeholder: "Search",
+          //   },
         }}
       >
         <Stack.Screen

@@ -12,7 +12,7 @@ export default function Tabs({
 }) {
   return (
     <FlatList
-      className=""
+      className="flex"
       data={list}
       renderItem={({ item }) => (
         <TouchableOpacity

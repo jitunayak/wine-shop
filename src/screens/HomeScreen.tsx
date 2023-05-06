@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { FlatList } from "react-native";
+import React, { useRef, useState } from "react";
+import { Animated } from "react-native";
 import Card from "../components/Card";
 import Container from "../components/Container";
 import Header from "../components/Header";
@@ -14,20 +14,53 @@ export default function HomeScreen() {
   const [currentSelectedCategory, setCurrentSelectedCategory] = useState(
     categories[0]
   );
+  const scrollA = useRef(new Animated.Value(0)).current;
+
   return (
-    <Container className="justify-start flex-1 ">
-      <Header />
+    <Container className="justify-between flex-1 ">
       <VStack className="items-stretch w-full ">
-        <Tabs
-          list={categories}
-          currentSelectedCategory={currentSelectedCategory}
-          setCurrentSelectedCategory={setCurrentSelectedCategory}
-        />
-        <FlatList
+        <Animated.View
+          className="w-full flex"
+          style={{
+            transform: [
+              {
+                translateY: scrollA.interpolate({
+                  inputRange: [0, 100],
+                  outputRange: [0, -60],
+                  extrapolate: "clamp",
+                }),
+              },
+            ],
+          }}
+        >
+          <Header />
+          <Tabs
+            list={categories}
+            currentSelectedCategory={currentSelectedCategory}
+            setCurrentSelectedCategory={setCurrentSelectedCategory}
+          />
+        </Animated.View>
+        <Animated.FlatList
           data={productList.filter(
             (item) => item.category === currentSelectedCategory
           )}
           className=""
+          style={{
+            transform: [
+              {
+                translateY: scrollA.interpolate({
+                  inputRange: [0, 100],
+                  outputRange: [0, -60],
+                  extrapolate: "clamp",
+                }),
+              },
+            ],
+          }}
+          scrollEventThrottle={16}
+          onScroll={Animated.event(
+            [{ nativeEvent: { contentOffset: { y: scrollA } } }],
+            { useNativeDriver: false }
+          )}
           showsVerticalScrollIndicator={false}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => <Card data={item} />}
