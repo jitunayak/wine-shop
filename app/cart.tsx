@@ -2,7 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { countBy, reduce, uniqBy } from "lodash";
 import React from "react";
-import { ScrollView, View } from "react-native";
+import { Image, ScrollView, View } from "react-native";
 import RazorpayCheckout, { CheckoutOptions } from "react-native-razorpay";
 import Address from "../src/components/Address";
 import { Button } from "../src/components/Button";
@@ -10,6 +10,7 @@ import { HStack } from "../src/components/HStack";
 import Label from "../src/components/Label";
 import { useCartStore } from "../src/hooks/store";
 import { env } from "../src/utils/config";
+import { theme } from "../src/utils/theme";
 
 export default function cartScreen() {
   const { items, removeAllItems } = useCartStore();
@@ -68,10 +69,20 @@ export default function cartScreen() {
     );
   }
   return (
-    <View className="flex-1 py-10 justify-between">
-      <ScrollView className="m-2 rounded-md bg-white border border-neutral-200">
+    <View
+      className="flex-1 py-10 justify-between"
+      style={{ backgroundColor: theme.BACKGROUND }}
+    >
+      <ScrollView className="m-4 rounded-md bg-white border border-neutral-200">
         {uniqBy(items, "id").map((item, index) => (
-          <HStack key={index} className="p-4 border-b border-neutral-100">
+          <HStack key={index} className="p-2 border-b border-neutral-100">
+            <Image
+              source={{ uri: item.image }}
+              className="w-12 h-12 aspect-square"
+              style={{
+                resizeMode: "contain",
+              }}
+            />
             <Label>{item.name}</Label>
             <HStack>
               <Label>₹ {item.price}</Label>

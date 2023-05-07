@@ -21,13 +21,12 @@ function Card({ data }: { data: IAlcohol }) {
     vibrate();
     removeItem(item);
   }
-  //   console.log("cart rendered for", data.category);
 
   const itemsAddedInCart = items.filter((item) => item.id === data.id).length;
   const isItemAddedInCart = itemsAddedInCart > 0;
 
   return (
-    <Container className="p-4 my-4 shadow-md flex-row justify-around bg-white dark:shadow-stone-300">
+    <Container className="p-4 rounded-lg m-4 shadow flex-row justify-around bg-white dark:shadow-stone-300">
       <MotiImage
         from={{ opacity: 0.6 }}
         animate={{ opacity: 1 }}
