@@ -28,15 +28,15 @@ export default function Profile() {
       id: 1,
       title: "Order #1",
       date: "2/2/2022",
-      items: ["lays", "cigar"],
+      items: ["Lays", "Bro Code"],
       status: "pending",
     },
     {
       id: 2,
-      title: "Order #1",
+      title: "Order #2",
       date: "2/2/2022",
       items: ["lays", "cigar"],
-      status: "pending",
+      status: "success",
     },
   ];
 
@@ -74,11 +74,22 @@ export default function Profile() {
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => {
           return (
-            <VStack className="m-1 bg-white rounded-md p-2 border border-neutral-100">
-              <Text className="text-base p-1">{item.title}</Text>
-              <Text className="text-base p-1">{item.date}</Text>
-              <Text className="text-base p-1">{item.items}</Text>
-              <Text className="text-base p-1">{item.status}</Text>
+            <VStack className="mx-2 my-1 bg-white rounded-md p-4 border border-neutral-200 ">
+              <HStack className="w-full items-center p-1 border border-transparent border-b-neutral-200">
+                <Text className="text-base p-1">{item.title}</Text>
+                <Text className="text-base p-1">{item.date}</Text>
+
+                <Text
+                  className={`text-base p-1 text-yellow-600 ${
+                    item.status === "success" && "text-green-600"
+                  } `}
+                >
+                  {item.status.toUpperCase()}
+                </Text>
+              </HStack>
+              <Text className="text-base p-1 text-clip">
+                {item.items.join(", ")}
+              </Text>
             </VStack>
           );
         }}

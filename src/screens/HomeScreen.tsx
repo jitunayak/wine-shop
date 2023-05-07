@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import { Animated } from "react-native";
 import Card from "../components/Card";
 import Container from "../components/Container";
@@ -41,9 +41,13 @@ export default function HomeScreen() {
           />
         </Animated.View>
         <Animated.FlatList
-          data={productList.filter(
-            (item) => item.category === currentSelectedCategory
-          )}
+          data={useCallback(
+            () =>
+              productList.filter(
+                (item) => item.category === currentSelectedCategory
+              ),
+            [currentSelectedCategory]
+          )()}
           className=""
           style={{
             transform: [

@@ -1,6 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import { MotiImage, MotiText } from "moti";
-import React from "react";
+import React, { memo } from "react";
 import { View } from "react-native";
 import { useCartStore } from "../hooks/store";
 import { IAlcohol } from "../types/ICommon";
@@ -9,7 +9,7 @@ import { Button } from "./Button";
 import Container from "./Container";
 import Label from "./Label";
 
-export default function Card({ data }: { data: IAlcohol }) {
+function Card({ data }: { data: IAlcohol }) {
   const { addItem, removeItem, items } = useCartStore();
 
   function addItemToCart(item: IAlcohol) {
@@ -21,6 +21,10 @@ export default function Card({ data }: { data: IAlcohol }) {
     vibrate();
     removeItem(item);
   }
+  //   console.log("cart rendered for", data.category);
+
+  const itemsAddedInCart = items.filter((item) => item.id === data.id).length;
+  const isItemAddedInCart = itemsAddedInCart > 0;
 
   return (
     <Container className="p-4 my-4 shadow-md flex-row justify-around bg-white dark:shadow-stone-300">
@@ -58,7 +62,7 @@ export default function Card({ data }: { data: IAlcohol }) {
           ₹ {data.price}
         </Label>
         <Container className="flex flex-row justify-center w-full items-center">
-          {items.filter((item) => item.id === data.id).length > 0 ? (
+          {isItemAddedInCart ? (
             <Container className="absolute flex flex-row justify-around border border-neutral-300 rounded-md mt-2 bottom-1 right-1">
               <View className=" gap-4 w-30 items-center">
                 <Ionicons
@@ -73,7 +77,7 @@ export default function Card({ data }: { data: IAlcohol }) {
                   transition={{ type: "spring" }}
                   className="text-md font-bold text-neutral-800"
                 >
-                  {items.filter((item) => item.id === data.id).length}
+                  {itemsAddedInCart}
                 </MotiText>
                 <Ionicons
                   onPress={() => addItemToCart(data)}
@@ -107,3 +111,5 @@ export default function Card({ data }: { data: IAlcohol }) {
     </Container>
   );
 }
+
+export default memo(Card);

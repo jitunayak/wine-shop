@@ -1,5 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
+import { countBy, reduce, uniqBy } from "lodash";
 import React from "react";
 import { ScrollView, View } from "react-native";
 import RazorpayCheckout, { CheckoutOptions } from "react-native-razorpay";
@@ -15,13 +16,12 @@ export default function cartScreen() {
   const router = useRouter();
 
   const getTotalBillAmount = () => {
-    const priceInRupees = items.reduce((acc, curr) => acc + curr.price, 0);
+    const priceInRupees = reduce(items, (acc, curr) => acc + curr.price, 0);
     return priceInRupees;
   };
 
   const getTotalBillAmountForPayment = () => {
-    const priceInRupees = items.reduce((acc, curr) => acc + curr.price, 0);
-    return priceInRupees * 100;
+    return getTotalBillAmount() * 100;
   };
 
   async function handlePayment() {
@@ -70,14 +70,12 @@ export default function cartScreen() {
   return (
     <View className="flex-1 py-10 justify-between">
       <ScrollView className="m-2 rounded-md bg-white border border-neutral-200">
-        {[...new Set(items.map((item) => item.id))].map((id) => (
-          <HStack key={id} className="p-4 border-b border-neutral-100">
-            <Label className="">
-              {items.find((item) => item.id === id)?.name}
-            </Label>
+        {uniqBy(items, "id").map((item, index) => (
+          <HStack key={index} className="p-4 border-b border-neutral-100">
+            <Label>{item.name}</Label>
             <HStack>
-              <Label> ₹ {items.find((item) => item.id === id)?.price}</Label>
-              <Label>x {items.filter((item) => item.id === id).length}</Label>
+              <Label>₹ {item.price}</Label>
+              <Label>x {countBy(items, "id")[item.id]}</Label>
             </HStack>
           </HStack>
         ))}

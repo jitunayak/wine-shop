@@ -1,8 +1,8 @@
+import { sortBy } from "lodash";
 import React, { useState } from "react";
 import { FlatList, TouchableOpacity } from "react-native";
 import Label from "./Label";
 import { VStack } from "./VStack";
-
 export default function Address() {
   const mockAddress = [
     {
@@ -35,9 +35,11 @@ export default function Address() {
       state: "Karnataka",
       lastModified: new Date("2022-08-01"),
     },
-  ].sort((a, b) => a.lastModified.getTime() - b.lastModified.getTime());
+  ];
 
-  const [selectedAddress, setSelectedAddress] = useState(mockAddress[0]);
+  const mockAddressSorted = sortBy(mockAddress, ["lastModified"]);
+
+  const [selectedAddress, setSelectedAddress] = useState(mockAddressSorted[0]);
 
   return (
     <VStack className="items-start p-2">
@@ -46,7 +48,7 @@ export default function Address() {
         className="flex"
         horizontal={true}
         showsHorizontalScrollIndicator={false}
-        data={mockAddress}
+        data={mockAddressSorted}
         ListEmptyComponent={() => <Label>No Address Found</Label>}
         renderItem={({ item }) => (
           <TouchableOpacity
