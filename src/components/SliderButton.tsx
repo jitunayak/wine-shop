@@ -5,15 +5,24 @@ import {
   PanGestureHandlerGestureEvent,
 } from "react-native-gesture-handler";
 import Animated, {
+  runOnJS,
   useAnimatedGestureHandler,
   useAnimatedStyle,
   useSharedValue,
   withSpring,
 } from "react-native-reanimated";
+import { useUserStore } from "../hooks/store";
+import { vibrate } from "../utils/utils";
 
 export default function SliderButton({ children }: any) {
   const BUTTON_WIDTH = 100;
   const translateX = useSharedValue(-120);
+  const { setUserId } = useUserStore();
+
+  function someWorklet() {
+    vibrate();
+    setUserId("test_user");
+  }
 
   const clamp = (value: number, min: number, max: number) => {
     "worklet";
@@ -24,15 +33,17 @@ export default function SliderButton({ children }: any) {
     useAnimatedGestureHandler<PanGestureHandlerGestureEvent>({
       onActive: (event) => {
         const MAX_SLIDE_OFFSET = BUTTON_WIDTH * 3;
-        translateX.value = clamp(
-          event.translationX,
-          -MAX_SLIDE_OFFSET,
-          MAX_SLIDE_OFFSET
-        );
+        translateX.value = event.translationX - 120;
+        //  clamp(
+        //   event.translationX,
+        //   -MAX_SLIDE_OFFSET,
+        //   MAX_SLIDE_OFFSET
+        // );
       },
 
       onEnd: () => {
         translateX.value = withSpring(-120);
+        runOnJS(someWorklet)();
       },
     });
 

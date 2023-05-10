@@ -43,9 +43,9 @@ const Login = () => {
           </Label>
         </View>
       </TouchableOpacity>
-      <Label onPress={handleSkip} className="p-2 text-base underline">
+      {/* <Label onPress={handleSkip} className="p-2 text-base underline">
         skip
-      </Label>
+      </Label> */}
       <SliderButton>slide to skip</SliderButton>
     </View>
   );
