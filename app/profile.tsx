@@ -45,7 +45,7 @@ export default function Profile() {
 
   const { setUserId } = useUserStore();
   return (
-    <Container className="bg-neutral-100 dark:bg-neutral-800 h-full">
+    <Container className="bg-neutral-100 dark:bg-neutral-900 h-full">
       <Label className="p-2 ml-4 font-semibold text-base">Account</Label>
       <VStack className=" m-4 rounded-md p-2 border border-neutral-100 dark:border-neutral-600">
         {profileItems.map((item) => {

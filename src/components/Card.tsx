@@ -28,7 +28,7 @@ function Card({ data }: { data: IAlcohol }) {
   const isItemAddedInCart = itemsAddedInCart > 0;
 
   return (
-    <Container className="p-4 rounded-lg m-4 dark:border dark:border-neutral-600 flex-row justify-around dark:shadow-stone-300">
+    <Container className="p-4 rounded-lg m-4 dark:border dark:border-neutral-600 flex-row justify-around dark:shadow-stone-300 dark:bg-neutral-900">
       <MotiImage
         from={{ opacity: 0.6 }}
         animate={{ opacity: 1 }}
@@ -76,7 +76,7 @@ function Card({ data }: { data: IAlcohol }) {
                   from={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ type: "spring" }}
-                  className="text-md font-bold text-neutral-800 dark:text-neutral-200"
+                  className="text-md font-bold text-neutral-900 dark:text-neutral-200"
                 >
                   {itemsAddedInCart}
                 </MotiText>

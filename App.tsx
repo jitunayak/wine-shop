@@ -53,7 +53,7 @@ export default function App() {
 
   return (
     <>
-      <SafeAreaView className="flex-1  dark:bg-neutral-800 ">
+      <SafeAreaView className="flex-1  dark:bg-neutral-900 ">
         <Container className="flex-1 items-center mt-10 justify-center w-full">
           {userId ? <HomeScreen /> : <Login />}
         </Container>

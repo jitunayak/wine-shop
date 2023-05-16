@@ -53,7 +53,7 @@ export default function Header() {
         </MotiText>
 
         {/* <Label>{userName}</Label> */}
-        <Container className="flex-row items-center justify-center px-4 dark:bg-neutral-800">
+        <Container className="flex-row items-center justify-center px-4 dark:bg-neutral-900">
           {items.length > 0 && (
             <Container className="bg-orange-500 rounded-full w-6 h-6 items-center justify-center ">
               <Label className="text-sm text-white font-bold">

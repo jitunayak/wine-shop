@@ -16,7 +16,7 @@ export const Button: React.FC<Props> = ({ title, className, ...props }) => {
     <TouchableOpacity onPress={props.onPress}>
       <View
         {...props}
-        className={`bg-neutral-800 justify-center items-center px-4 rounded ${className}`}
+        className={`bg-neutral-900 justify-center items-center px-4 rounded ${className}`}
       >
         {props.children ? (
           props.children

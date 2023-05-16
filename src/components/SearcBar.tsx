@@ -17,7 +17,7 @@ export default function SearcBar() {
         placeholderTextColor={colorScheme === "dark" ? "white" : "gray"}
         placeholder="search e.g. magnum"
         style={{ fontSize: 16 }}
-        className="bg-white dark:bg-neutral-800 dark:text-neutral-50 border border-neutral-300 rounded-md px-4 py-3  dark:border-neutral-600"
+        className="bg-white dark:bg-neutral-900 dark:text-neutral-50 border border-neutral-300 rounded-md px-4 py-3  dark:border-neutral-600"
       />
     </View>
   );

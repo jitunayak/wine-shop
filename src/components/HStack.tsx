@@ -7,7 +7,7 @@ interface Props extends ViewProps {
 export const HStack: React.FC<Props> = ({ children, className, ...props }) => {
   return (
     <View
-      className={`flex flex-row items-center justify-between dark:bg-neutral-800 ${className}`}
+      className={`flex flex-row items-center justify-between dark:bg-neutral-900 ${className}`}
       {...props}
     >
       {children}
