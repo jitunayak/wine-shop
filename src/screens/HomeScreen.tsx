@@ -17,7 +17,7 @@ export default function HomeScreen() {
   const scrollA = useRef(new Animated.Value(0)).current;
 
   return (
-    <Container className="justify-between flex-1 ">
+    <Container className="justify-between flex-1">
       <VStack className="items-stretch w-full ">
         <Animated.View
           className="w-full flex"

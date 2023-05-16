@@ -9,7 +9,7 @@ export default function Container({
   return (
     <View
       {...props}
-      className={`flex bg-white dark:bg-slate-800  ${className}`}
+      className={`flex bg-white dark:bg-neutral-900 ${className}`}
     >
       {children}
     </View>

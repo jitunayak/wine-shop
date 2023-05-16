@@ -1,5 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import { MotiImage, MotiText } from "moti";
+import { useColorScheme } from "nativewind";
 import React, { memo } from "react";
 import { View } from "react-native";
 import { useCartStore } from "../hooks/store";
@@ -11,6 +12,7 @@ import Label from "./Label";
 
 function Card({ data }: { data: IAlcohol }) {
   const { addItem, removeItem, items } = useCartStore();
+  const { colorScheme } = useColorScheme();
 
   function addItemToCart(item: IAlcohol) {
     vibrate();
@@ -26,17 +28,17 @@ function Card({ data }: { data: IAlcohol }) {
   const isItemAddedInCart = itemsAddedInCart > 0;
 
   return (
-    <Container className="p-4 rounded-lg m-4 shadow flex-row justify-around bg-white dark:shadow-stone-300">
+    <Container className="p-4 rounded-lg m-4 dark:border dark:border-neutral-600 flex-row justify-around dark:shadow-stone-300">
       <MotiImage
         from={{ opacity: 0.6 }}
         animate={{ opacity: 1 }}
         transition={{ type: "timing" }}
         source={{ uri: data.image }}
-        className={`h-32 w-20 scale-150 mb-2  shadow-orange-300 ml-4`}
+        className={`h-32 w-20 scale-150 mb-2 shadow-md  ml-4`}
       />
       <Container className="flex items-start ml-4 ">
         <Label
-          className="text-lg font-medium w-fit text-neutral-800 line-clamp-1"
+          className="text-lg font-medium w-fit line-clamp-1"
           numberOfLines={1}
         >
           {data.name}
@@ -57,13 +59,13 @@ function Card({ data }: { data: IAlcohol }) {
               );
             });
           })}
-        <Label className="text-lg font-bold text-neutral-800">
+        <Label className="text-lg font-bold dark:text-neutral-100">
           ₹ {data.price}
         </Label>
         <Container className="flex flex-row justify-center w-full items-center">
           {isItemAddedInCart ? (
-            <Container className="absolute flex flex-row justify-around border border-neutral-300 rounded-md mt-2 bottom-1 right-1">
-              <View className=" gap-4 w-30 items-center">
+            <Container className="absolute justify-around border border-neutral-300 rounded-md mt-2 bottom-1 right-1">
+              <View className=" gap-4 items-center p-2">
                 <Ionicons
                   onPress={() => removeItemFromCart(data)}
                   name="remove-circle"
@@ -74,7 +76,7 @@ function Card({ data }: { data: IAlcohol }) {
                   from={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ type: "spring" }}
-                  className="text-md font-bold text-neutral-800"
+                  className="text-md font-bold text-neutral-800 dark:text-neutral-200"
                 >
                   {itemsAddedInCart}
                 </MotiText>
@@ -82,7 +84,7 @@ function Card({ data }: { data: IAlcohol }) {
                   onPress={() => addItemToCart(data)}
                   name="add-circle-sharp"
                   size={30}
-                  color="black"
+                  color={colorScheme === "dark" ? "white" : "black"}
                 />
               </View>
             </Container>
@@ -95,7 +97,7 @@ function Card({ data }: { data: IAlcohol }) {
               ) : (
                 <Container className="absolute flex flex-row justify-around border border-transparent rounded-md bottom-1 right-1">
                   <Button
-                    className="py-[1] border bg-white border-neutral-300"
+                    className="py-[1] border border-neutral-300 dark:border-neutral-600"
                     title="GRAB"
                     onPress={() => {
                       addItemToCart(data);

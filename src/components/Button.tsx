@@ -21,7 +21,7 @@ export const Button: React.FC<Props> = ({ title, className, ...props }) => {
         {props.children ? (
           props.children
         ) : (
-          <Label className="text-base">{title}</Label>
+          <Label className="text-base dark:text-neutral-200">{title}</Label>
         )}
       </View>
     </TouchableOpacity>

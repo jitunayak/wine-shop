@@ -1,6 +1,7 @@
 import { SimpleLineIcons } from "@expo/vector-icons";
 import { Link, useRouter } from "expo-router";
 import { MotiText, MotiView } from "moti";
+import { useColorScheme } from "nativewind";
 import React from "react";
 import { Image } from "react-native";
 import { useCartStore, useUserStore } from "../hooks/store";
@@ -12,6 +13,7 @@ export default function Header() {
   const { items } = useCartStore();
   const router = useRouter();
   const { setUserId, userName } = useUserStore();
+  const { colorScheme } = useColorScheme();
 
   return (
     <MotiView
@@ -32,7 +34,11 @@ export default function Header() {
         ) : (
           <MotiView className="rounded-full w-10 h-10 justify-center items-center  border border-neutral-400">
             <Link href="profile">
-              <SimpleLineIcons name="user" size={20} color="black" />
+              <SimpleLineIcons
+                name="user"
+                size={20}
+                color={colorScheme === "dark" ? "white" : "pink"}
+              />
             </Link>
           </MotiView>
         )}
@@ -41,13 +47,13 @@ export default function Header() {
           onPress={() => {
             setUserId(null);
           }}
-          className="text-neutral-700  text-3xl font-extrabold"
+          className="text-neutral-700  text-3xl font-extrabold dark:text-neutral-200"
         >
           Royal Glass
         </MotiText>
 
         {/* <Label>{userName}</Label> */}
-        <Container className="flex-row items-center justify-center px-4 ">
+        <Container className="flex-row items-center justify-center px-4 dark:bg-neutral-800">
           {items.length > 0 && (
             <Container className="bg-orange-500 rounded-full w-6 h-6 items-center justify-center ">
               <Label className="text-sm text-white font-bold">
@@ -56,7 +62,11 @@ export default function Header() {
             </Container>
           )}
           <Link href="/cart">
-            <SimpleLineIcons name="bag" size={24} color="black" />
+            <SimpleLineIcons
+              name="bag"
+              size={24}
+              color={colorScheme === "dark" ? "gray" : "black"}
+            />
           </Link>
         </Container>
       </MotiView>

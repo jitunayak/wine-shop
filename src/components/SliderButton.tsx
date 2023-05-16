@@ -43,7 +43,9 @@ export default function SliderButton({ children }: any) {
 
       onEnd: () => {
         translateX.value = withSpring(-120);
-        runOnJS(someWorklet)();
+        if (translateX.value > 120) {
+          runOnJS(someWorklet)();
+        }
       },
     });
 

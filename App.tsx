@@ -53,15 +53,12 @@ export default function App() {
 
   return (
     <>
-      <SafeAreaView className="flex" />
-      <Container className="flex-1 items-center justify-center w-full">
-        {/* <Switch
-          value={colorScheme === "dark"}
-          onValueChange={toggleColorScheme}
-        /> */}
-        {userId ? <HomeScreen /> : <Login />}
+      <SafeAreaView className="flex-1  dark:bg-neutral-800 ">
+        <Container className="flex-1 items-center mt-10 justify-center w-full">
+          {userId ? <HomeScreen /> : <Login />}
+        </Container>
         <StatusBar style={colorScheme === "dark" ? "light" : "dark"} />
-      </Container>
+      </SafeAreaView>
     </>
   );
 }

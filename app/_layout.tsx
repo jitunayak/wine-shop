@@ -8,17 +8,21 @@ export const unstable_settings = {
 export default function Layout() {
   return (
     <>
-      <SafeAreaView className="flex mt-2 " />
+      <SafeAreaView className="flex -mt-16" />
       <Stack
         initialRouteName="/"
         screenOptions={{
           headerShown: false,
+          headerStyle: {
+            backgroundColor: "#323232",
+          },
+
           //   headerTitle: "Royal Glass",
-          //   headerTitleStyle: {
-          //     fontWeight: "bold",
-          //     fontSize: 32,
-          //     color: "#373333",
-          //   },
+          headerTitleStyle: {
+            // fontWeight: "bold",
+            // fontSize: 32,
+            color: "#a6a6a6",
+          },
           //   headerStyle: {},
           //   headerSearchBarOptions: {
           //     placeholder: "Search",

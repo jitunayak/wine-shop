@@ -59,8 +59,8 @@ export default function Address() {
             ${
               selectedAddress.id === item.id
                 ? "border-green-600 bg-green-50 shadow-lg shadow-green-50"
-                : "border-neutral-200 bg-white"
-            } m-2 p-3 rounded  border-2 `}
+                : "border-neutral-200 bg-white dark:border-neutral-600"
+            } m-2 p-3 rounded  border-2 dark:bg-neutral-800 dark:shadow-sm`}
           >
             <Label>{item.name}</Label>
             <Label className="text-neutral-600">{item.address}</Label>
