@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text } from "react-native";
 import {
   PanGestureHandler,
   PanGestureHandlerGestureEvent,
@@ -13,6 +13,7 @@ import Animated, {
 } from "react-native-reanimated";
 import { useUserStore } from "../hooks/store";
 import { vibrate } from "../utils/utils";
+import Container from "./Container";
 
 export default function SliderButton({ children }: any) {
   const BUTTON_WIDTH = 100;
@@ -56,7 +57,7 @@ export default function SliderButton({ children }: any) {
   }, []);
 
   return (
-    <View className="items-start w-full border-neutral-100 bg-neutral-200 p-1 rounded  bottom-2 mt-10">
+    <Container className="items-start w-full border-neutral-100 bg-neutral-200 p-2 rounded  bottom-2 mt-10 dark:bg-neutral-800">
       <PanGestureHandler onGestureEvent={onPanGenstureEvent}>
         <Animated.View
           style={[rStyle, { width: BUTTON_WIDTH * 1.2 }]}
@@ -65,6 +66,6 @@ export default function SliderButton({ children }: any) {
           <Text className="text-white p-2 font-medium">{children}</Text>
         </Animated.View>
       </PanGestureHandler>
-    </View>
+    </Container>
   );
 }

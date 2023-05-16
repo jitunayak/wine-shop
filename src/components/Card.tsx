@@ -97,7 +97,7 @@ function Card({ data }: { data: IAlcohol }) {
               ) : (
                 <Container className="absolute flex flex-row justify-around border border-transparent rounded-md bottom-1 right-1">
                   <Button
-                    className="py-[1] border border-neutral-300 dark:border-neutral-600"
+                    className="py-[1] border bg-white border-neutral-300 dark:border-neutral-600 dark:bg-neutral-900"
                     title="GRAB"
                     onPress={() => {
                       addItemToCart(data);
