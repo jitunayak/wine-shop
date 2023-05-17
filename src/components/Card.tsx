@@ -28,13 +28,13 @@ function Card({ data }: { data: IAlcohol }) {
   const isItemAddedInCart = itemsAddedInCart > 0;
 
   return (
-    <Container className="p-4 rounded-lg m-4 dark:border dark:border-neutral-600 flex-row justify-around dark:shadow-stone-300 dark:bg-neutral-900">
+    <Container className="p-4 rounded-lg m-4 shadow-lg dark:shadow-transparent dark:border dark:border-neutral-600 flex-row justify-around dark:shadow-stone-300 dark:bg-neutral-900">
       <MotiImage
         from={{ opacity: 0.6 }}
         animate={{ opacity: 1 }}
         transition={{ type: "timing" }}
         source={{ uri: data.image }}
-        className={`h-32 w-20 scale-150 mb-2 shadow-md  ml-4`}
+        className={`h-32 w-20 scale-150 mb-2 shadow-md ml-4`}
       />
       <Container className="flex items-start ml-4 ">
         <Label

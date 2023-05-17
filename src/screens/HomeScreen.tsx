@@ -25,8 +25,8 @@ export default function HomeScreen() {
             transform: [
               {
                 translateY: scrollA.interpolate({
-                  inputRange: [0, 100],
-                  outputRange: [0, -60],
+                  inputRange: [0, 400],
+                  outputRange: [0, -150],
                   extrapolate: "clamp",
                 }),
               },
@@ -53,8 +53,8 @@ export default function HomeScreen() {
             transform: [
               {
                 translateY: scrollA.interpolate({
-                  inputRange: [0, 100],
-                  outputRange: [0, -60],
+                  inputRange: [0, 400],
+                  outputRange: [0, -150],
                   extrapolate: "clamp",
                 }),
               },

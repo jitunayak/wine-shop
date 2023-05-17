@@ -110,7 +110,7 @@ export default function cartScreen() {
       </ScrollView>
       <Address />
       <Button
-        className="m-2 bg-green-600 shadow-lg"
+        className="m-2 bg-green-600 shadow-lg dark:bg-green-800"
         onPress={() => handlePayment()}
       >
         {/* <Button
@@ -135,7 +135,7 @@ export default function cartScreen() {
           </Animated.View>
         </Button> */}
 
-        <HStack className="m-2 px-2 ">
+        <HStack className="m-2 px-2 dark:bg-green-800">
           <Label className="text-md font-medium text-white">
             {items.length} items |
           </Label>

@@ -47,12 +47,18 @@ export default function Profile() {
   return (
     <Container className="bg-neutral-100 dark:bg-neutral-900 h-full">
       <Label className="p-2 ml-4 font-semibold text-base">Account</Label>
-      <VStack className=" m-4 rounded-md p-2 border border-neutral-100 dark:border-neutral-600">
-        {profileItems.map((item) => {
+      <VStack className=" m-4 rounded-md p-2 border border-neutral-300 dark:border-neutral-600">
+        {profileItems.map((item, index) => {
+          const lastItemStyle =
+            index === profileItems.length - 1
+              ? "border-b-transparent w-full "
+              : "w-full";
           return (
             <HStack
               key={item.title}
-              className="w-full items-center p-2 border border-transparent border-b-neutral-200 dark:border-b-neutral-600"
+              className={`
+                "w-full items-center p-2 border border-transparent border-b-neutral-200 dark:border-b-neutral-600 ${lastItemStyle}
+              `}
             >
               <Label className="text-base p-1">{item.title}</Label>
               <AntDesign name="right" size={20} color="gray" />
@@ -83,7 +89,7 @@ export default function Profile() {
         renderItem={({ item }) => {
           return (
             <VStack className="mx-2 my-1 rounded-md p-4 border  border-neutral-200 items-start dark:border-neutral-600">
-              <HStack className="w-full items-center p-1 border border-transparent border-b-neutral-200">
+              <HStack className="w-full items-center p-1 border border-transparent border-b-neutral-200 dark:border-b-neutral-400">
                 <Label className="text-base p-1">{item.title}</Label>
                 <Label className="text-base p-1">{item.date}</Label>
 

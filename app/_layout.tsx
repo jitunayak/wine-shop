@@ -1,4 +1,5 @@
 import { Stack } from "expo-router";
+import { useColorScheme } from "nativewind";
 import { SafeAreaView } from "react-native";
 
 export const unstable_settings = {
@@ -6,6 +7,7 @@ export const unstable_settings = {
 };
 
 export default function Layout() {
+  const { colorScheme } = useColorScheme();
   return (
     <>
       <SafeAreaView className="flex -mt-16" />
@@ -14,14 +16,14 @@ export default function Layout() {
         screenOptions={{
           headerShown: false,
           headerStyle: {
-            backgroundColor: "#323232",
+            backgroundColor: colorScheme === "dark" ? "#323232" : "green",
           },
 
           //   headerTitle: "Royal Glass",
           headerTitleStyle: {
             // fontWeight: "bold",
             // fontSize: 32,
-            color: "#a6a6a6",
+            color: colorScheme === "dark" ? "#a6a6a6" : "white",
           },
           //   headerStyle: {},
           //   headerSearchBarOptions: {
