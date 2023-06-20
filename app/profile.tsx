@@ -3,6 +3,7 @@ import { useColorScheme } from "nativewind";
 import React from "react";
 import { FlatList, Switch } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { Chip, ChipTypes } from "../src/components/Chip";
 import Container from "../src/components/Container";
 import { HStack } from "../src/components/HStack";
 import Label from "../src/components/Label";
@@ -93,13 +94,11 @@ export default function Profile() {
                 <Label className="text-base p-1">{item.title}</Label>
                 <Label className="text-base p-1">{item.date}</Label>
 
-                <Label
-                  className={`text-base p-1 text-yellow-600 dark:text-yellow-400 ${
-                    item.status === "success" && "text-green-600"
-                  } `}
-                >
-                  {item.status.toUpperCase()}
-                </Label>
+                <Chip
+                  type={item.status as ChipTypes}
+                  label={item.status}
+                  size="sm"
+                ></Chip>
               </HStack>
               <Label className="text-base p-1 mt-2 text-clip">
                 {item.items.join(", ")}

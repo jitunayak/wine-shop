@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import Tabs from "../components/Tabs";
 import { VStack } from "../components/VStack";
 import { productList } from "./mockData";
+
 export default function HomeScreen() {
   const [categories, setCategories] = useState(
     [...new Set(productList.map((item) => item.category))].sort()
@@ -20,7 +21,7 @@ export default function HomeScreen() {
     <Container className="justify-between flex-1">
       <VStack className="items-stretch w-full ">
         <Animated.View
-          className="w-full flex"
+          className="flex w-full"
           style={{
             transform: [
               {

@@ -83,14 +83,14 @@ export default function delivery() {
               )}
             </Container>
             <Container>
-              <Text
-                className={` mt-2 font-bold text-md text-${
+              <Label
+                className={`mt-2 font-bold text-md text-${
                   item.isCompleted ? "green" : "neutral"
                 }-700`}
               >
                 {item.name}
-              </Text>
-              <Text className="">( {item.description} )</Text>
+              </Label>
+              <Label className="">( {item.description} )</Label>
             </Container>
           </HStack>
         </VStack>

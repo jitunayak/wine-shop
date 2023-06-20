@@ -15,6 +15,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "class-variance-authority": "^0.6.0",
     "dotenv": "^16.0.3",
     "expo": "~48.0.15",
     "expo-asset": "~8.9.1",

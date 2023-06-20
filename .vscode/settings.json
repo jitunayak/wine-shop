@@ -6,7 +6,10 @@
     "**/CVS": true,
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
-    "**/node_modules": false
+    "**/node_modules": true
   },
-  "typewriterAutoScroll.enable": true
+  "typewriterAutoScroll.enable": true,
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ]
 }

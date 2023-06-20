@@ -11,7 +11,7 @@ import { env } from "./src/utils/config";
 export default function App() {
   const { colorScheme, toggleColorScheme, setColorScheme } = useColorScheme();
   const { userId, setUserId, setUserName } = useUserStore();
-  //   setColorScheme("dark");
+  setColorScheme("light");
 
   const handleDeepLink = async (url: any) => {
     console.log({ url });
