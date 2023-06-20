@@ -1,11 +1,11 @@
 import React from "react";
 import { View, ViewProps } from "react-native";
 
-export default function Container({
+export const Container: React.FC<ViewProps> = ({
   children,
   className,
   ...props
-}: ViewProps) {
+}) => {
   return (
     <View
       {...props}
@@ -14,4 +14,4 @@ export default function Container({
       {children}
     </View>
   );
-}
+};

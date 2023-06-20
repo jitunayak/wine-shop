@@ -1,6 +1,5 @@
 import { VariantProps, cva } from "class-variance-authority";
-import Container from "./Container";
-import Label from "./Label";
+import { Container, Label } from ".";
 
 export type ChipTypes = "success" | "pending";
 
