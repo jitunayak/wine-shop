@@ -1,8 +1,6 @@
-import { Label } from ".";
+import { HStack, Label, VStack } from ".";
 import { IOrderItem } from "../types";
 import { Chip, ChipTypes } from "./Chip";
-import { HStack } from "./HStack";
-import { VStack } from "./VStack";
 
 export const OrderHistory: React.FC<{ item: IOrderItem }> = ({ item }) => {
   return (

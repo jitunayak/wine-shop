@@ -11,9 +11,9 @@ import Animated, {
   useSharedValue,
   withSpring,
 } from "react-native-reanimated";
+import { Container } from ".";
 import { useUserStore } from "../hooks/store";
 import { vibrate } from "../utils/utils";
-import Container from "./Container";
 
 export default function SliderButton({ children }: any) {
   const BUTTON_WIDTH = 100;

@@ -4,7 +4,7 @@ import {
   View,
   ViewProps,
 } from "react-native";
-import Label from "./Label";
+import { Label } from ".";
 
 interface Props extends ViewProps {
   title?: string;

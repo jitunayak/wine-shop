@@ -4,9 +4,8 @@ import { MotiText, MotiView } from "moti";
 import { useColorScheme } from "nativewind";
 import React from "react";
 import { Image } from "react-native";
+import { Container, Label } from ".";
 import { useCartStore, useUserStore } from "../hooks/store";
-import Container from "./Container";
-import Label from "./Label";
 import SearcBar from "./SearcBar";
 
 export default function Header() {

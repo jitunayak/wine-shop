@@ -1,8 +1,7 @@
 import { sortBy } from "lodash";
 import React, { useState } from "react";
 import { FlatList, TouchableOpacity } from "react-native";
-import Label from "./Label";
-import { VStack } from "./VStack";
+import { Label, VStack } from ".";
 export default function Address() {
   const mockAddress = [
     {
