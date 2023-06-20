@@ -3,12 +3,16 @@ import { useColorScheme } from "nativewind";
 import React from "react";
 import { FlatList, Switch } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { Chip, ChipTypes } from "../src/components/Chip";
-import Container from "../src/components/Container";
-import { HStack } from "../src/components/HStack";
-import Label from "../src/components/Label";
-import { VStack } from "../src/components/VStack";
 import { useUserStore } from "../src/hooks/store";
+
+import {
+  Container,
+  HStack,
+  Label,
+  OrderHistory,
+  VStack,
+} from "./../src/components";
+import { IOrderItem } from "./../src/types";
 
 export default function Profile() {
   const profileItems = [
@@ -26,7 +30,7 @@ export default function Profile() {
     },
   ];
 
-  const orderItems = [
+  const orderItems: IOrderItem[] = [
     {
       id: 1,
       title: "Order #1",
@@ -87,25 +91,7 @@ export default function Profile() {
       <FlatList
         data={orderItems}
         keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => {
-          return (
-            <VStack className="mx-2 my-1 rounded-md p-4 border  border-neutral-200 items-start dark:border-neutral-600">
-              <HStack className="w-full items-center p-1 border border-transparent border-b-neutral-200 dark:border-b-neutral-400">
-                <Label className="text-base p-1">{item.title}</Label>
-                <Label className="text-base p-1">{item.date}</Label>
-
-                <Chip
-                  type={item.status as ChipTypes}
-                  label={item.status}
-                  size="sm"
-                ></Chip>
-              </HStack>
-              <Label className="text-base p-1 mt-2 text-clip">
-                {item.items.join(", ")}
-              </Label>
-            </VStack>
-          );
-        }}
+        renderItem={(item) => <OrderHistory item={item.item} />}
       />
     </Container>
   );
