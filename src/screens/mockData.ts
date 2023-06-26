@@ -2,7 +2,7 @@ import { IAlcohol } from "../types/ICommon";
 
 export const productList: IAlcohol[] = [
     {
-        id: "sdsds2233der",
+        id: "a92ea84e-9c1f-5eba-87f0-0ef6765323f7",
         name: "Lanson",
         price: 450,
         category: "rum",
@@ -15,7 +15,7 @@ export const productList: IAlcohol[] = [
         inStock: true,
     },
     {
-        id: "sdsds2ww233d0394er",
+        id: "179c17fa-38a3-5b77-8029-0c2fa4274c41",
         name: "St Da Squad",
         price: 450,
         category: "beer",
@@ -27,7 +27,7 @@ export const productList: IAlcohol[] = [
         inStock: true,
     },
     {
-        id: "sdsds2ww233d0394sder",
+        id: "c08c139b-a9d7-52c7-9469-9270b5806781",
         name: "St Da Squad",
         price: 450,
         category: "rum",
@@ -39,7 +39,7 @@ export const productList: IAlcohol[] = [
         inStock: true,
     },
     {
-        id: "sdsdsdwwedr",
+        id: "262396d5-88d9-509d-a0fa-76742ff05c6d",
         name: "Lanson",
         price: 150,
         category: "whisky",
@@ -52,7 +52,7 @@ export const productList: IAlcohol[] = [
         inStock: true,
     },
     {
-        id: "233ww3",
+        id: "1dc17499-95c0-5806-89ae-3d3287da8c00",
         name: "San Miguel",
         price: 150,
         category: "wine",
@@ -64,7 +64,7 @@ export const productList: IAlcohol[] = [
         inStock: true,
     },
     {
-        id: "233ww2www233",
+        id: "66362103-7c6d-5dc1-88dc-7e7ca63a2d63",
         name: "Paper Cups",
         price: 5,
         category: "glass",
@@ -77,7 +77,7 @@ export const productList: IAlcohol[] = [
         inStock: true,
     },
     {
-        id: "233ww2www23eee3",
+        id: "fa127079-5781-552a-acaa-6ac2e3684dcc",
         name: "Classic Lays",
         price: 5,
         category: "snacks",
@@ -90,7 +90,7 @@ export const productList: IAlcohol[] = [
         inStock: true,
     },
     {
-        id: "233ww2wwerrw233",
+        id: "2499d36b-510e-5548-9b26-3337dcb30aee",
         name: "Kurkure Masala Munch",
         price: 5,
         category: "snacks",
@@ -103,7 +103,7 @@ export const productList: IAlcohol[] = [
         inStock: true,
     },
     {
-        id: "233ww2233",
+        id: "2f874b22-c2bd-59e6-8138-9b225bcfdd90",
         name: "Plastic Glass",
         price: 3,
         category: "glass",
@@ -115,7 +115,7 @@ export const productList: IAlcohol[] = [
         inStock: true,
     },
     {
-        id: "2333",
+        id: "49c95a14-c8bf-5c51-aacb-e3a21b229fbd",
         name: "San Miguel",
         price: 150,
         category: "beer",
@@ -127,7 +127,7 @@ export const productList: IAlcohol[] = [
         inStock: true,
     },
     {
-        id: "23kkkksd33",
+        id: "a406909e-c62c-5c22-ab53-41294ca2c19d",
         name: "San Miguel",
         price: 150,
         category: "beer",
@@ -139,7 +139,7 @@ export const productList: IAlcohol[] = [
         inStock: true,
     },
     {
-        id: "2333eewewew",
+        id: "8f0af8e2-2800-5021-9dfc-f6bad8d031da",
         name: "San Miguel",
         price: 150,
         category: "beer",
@@ -151,7 +151,7 @@ export const productList: IAlcohol[] = [
         inStock: true,
     },
     {
-        id: "2qqq333",
+        id: "da70986a-3fde-5163-bcf4-6124e8ac54cd",
         name: "San Miguel",
         price: 150,
         category: "beer",
@@ -163,7 +163,7 @@ export const productList: IAlcohol[] = [
         inStock: true,
     },
     {
-        id: "23w33",
+        id: "f033e5ad-21f2-58f7-8b7d-fadc47eb67ee",
         name: "San Miguel",
         price: 150,
         category: "beer",
@@ -175,7 +175,7 @@ export const productList: IAlcohol[] = [
         inStock: true,
     },
     {
-        id: "233w3",
+        id: "eda557c7-a206-5721-bee1-b81b9365880f",
         name: "San Miguel",
         price: 150,
         category: "beer",
@@ -187,7 +187,7 @@ export const productList: IAlcohol[] = [
         inStock: true,
     },
     {
-        id: "23323333",
+        id: "11a92b9e-351a-5796-8f9e-637ff259ab42",
         name: "Malboro",
         price: 150,
         category: "cigarettes",
@@ -200,7 +200,7 @@ export const productList: IAlcohol[] = [
         inStock: true,
     },
     {
-        id: "2332333ksldsddd3",
+        id: "9b973ac4-a980-535d-b6ba-24ad209d2168",
         name: "Malboro",
         price: 150,
         category: "cigarettes",
